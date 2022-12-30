@@ -1,8 +1,8 @@
 name: hello actions
 
-on:
-  schedule:
-    - cron: "52 00 30 12 *"
+on:  
+  repository_dispatch:
+    types: [run_workflow]
 
   workflow_dispatch:
     inputs:
@@ -19,16 +19,14 @@ on:
         description: "Test scenario tags"
         required: false
         type: boolean
-
-
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
-
+        
 jobs:
+  log-ext-inputs:
+    runs-on: ubuntu-latest
+    run: |
+      echo "The payload is ${{ github.event.client_payload.mydata }}"
+
+
   log-the-inputs:
     runs-on: ubuntu-latest
     steps:
