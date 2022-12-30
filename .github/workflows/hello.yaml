@@ -7,5 +7,5 @@ on:
 jobs:
   log-ext-inputs:
     runs-on: ubuntu-latest
-    run: |
-      echo "The payload is ${{ github.event.client_payload.mydata }}"
+    steps:
+      - run: echo "The payload is ${{ github.event.client_payload.mydata }}"
