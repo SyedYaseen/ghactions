@@ -32,11 +32,14 @@ on:
       - main
 
 jobs:
-  hello:
+  log-the-inputs:
     runs-on: ubuntu-latest
-
     steps:
-      - name: Random name
-        run: echo "This?"
-      - run: echo "Working?"
-      - run: echo "One more?"
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+          echo "Environment: $ENVIRONMENT"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
+          ENVIRONMENT: ${{ inputs.environment }}
