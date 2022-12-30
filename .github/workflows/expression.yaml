@@ -2,12 +2,15 @@ name: expression workflow
 
 on:
   workflow_dispatch:
-    input:
+    inputs:
       isPass:
         description: Should it pass?
-        type: boolean
-        default: 'No'
-
+        type: choice
+        default: 'no'
+        options:
+          - 'yes'
+          - 'no'
+        
 jobs:
   first-job:
     runs-on: ubuntu-latest
