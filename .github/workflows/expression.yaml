@@ -11,7 +11,7 @@ on:
           - 'yes'
           - 'no'
 env:
-  TEST_ENV: "Idhu oru env"
+  TEST_ENV: ${{ inputs.isPass == 'yes' }}
 
 jobs:
   yes-job:
