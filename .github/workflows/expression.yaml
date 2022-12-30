@@ -12,13 +12,17 @@ on:
           - 'no'
         
 jobs:
-  first-job:
+  yes-job:
+    if: inputs.isPass == 'yes'
     runs-on: ubuntu-latest
     steps:
       - name: print input when yes
-        if: inputs.isPass == 'yes'
+        run: echo "The value is ${{ inputs.isPass }}"
+
+  no-job:
+    if: inputs.isPass == 'no'
+    runs-on: ubuntu-latest
+    steps:
+      - name: print input when no
         run: echo "The value is ${{ inputs.isPass }}"
         
-      - name: print input when no
-        if: inputs.isPass == 'no'
-        run: echo "The value is ${{ inputs.isPass }}"
