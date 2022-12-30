@@ -2,7 +2,7 @@ name: hello actions
 
 on:
   schedule:
-    - cron: "52 00 30 12 *"
+    - cron: "13 01 30 12 *"
 
   push:
     branches:
