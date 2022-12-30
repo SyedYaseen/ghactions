@@ -1,0 +1,22 @@
+name: hello actions
+
+on:
+  schedule:
+    - cron: "52 00 30 12 *"
+
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  hello:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Random name
+        run: echo "This?"
+      - run: echo "Working?"
+      - run: echo "One more?"

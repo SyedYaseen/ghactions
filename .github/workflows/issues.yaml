@@ -1,0 +1,37 @@
+name: Issues action workflow
+
+on:
+  issues:
+    types: [opened]
+    
+jobs:
+  comment-with-action:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Create or Update Comment
+        uses: peter-evans/create-or-update-comment@v2.1.0
+        with:
+          issue-number: ${{ github.event.issue.number }}
+          body: |
+            This is a comment added by action
+          reactions: '+1'
+          
+  comment-with-api:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make comment with api
+        run: |            
+          gh api -X POST \
+            https://api.github.com/repos/${ORGANIZATION}/${REPOSITORY}/issues/${ISSUE_NUMBER}/comments \
+            -f body='
+            Comment but from API call, not actions
+            '
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          ORGANIZATION: ${{ github.event.organization.login }}
+          REPOSITORY: ${{ github.event.repository.name }}
+          ISSUE_NUMBER: ${{ github.event.issue.number }}
+          
+        
+
+    
