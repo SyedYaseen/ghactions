@@ -16,5 +16,5 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: print input
-        run: echo "The value is ${{ github.event.input.isPass }}"
+        run: echo "The value is ${{ inputs.isPass }}"
   
