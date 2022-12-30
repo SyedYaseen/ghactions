@@ -6,7 +6,7 @@ on:
       isPass:
         description: Should it pass?
         type: choice
-        default: 'no'
+        default: 'yes'
         options:
           - 'yes'
           - 'no'
@@ -15,6 +15,10 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: print input
+      - name: print input when yes
+        if: inputs.isPass == 'yes'
         run: echo "The value is ${{ inputs.isPass }}"
-  
+        
+      - name: print input when no
+        if: inputs.isPass == 'no'
+        run: echo "The value is ${{ inputs.isPass }}"
