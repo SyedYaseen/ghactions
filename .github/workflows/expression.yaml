@@ -10,7 +10,9 @@ on:
         options:
           - 'yes'
           - 'no'
-        
+env:
+  TEST_ENV: "Idhu oru env"
+
 jobs:
   yes-job:
     if: inputs.isPass == 'yes'
@@ -18,6 +20,9 @@ jobs:
     steps:
       - name: print input when yes
         run: echo "The value is ${{ inputs.isPass }}"
+  
+      - name: print env
+        run: echo "The value is $env.TEST_ENV"
 
   no-job:
     if: inputs.isPass == 'no'
