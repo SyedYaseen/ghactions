@@ -9,3 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: echo "The payload is ${{ github.event.client_payload.mydata }}"
+
+
+  log-the-inputs:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Log level: $LEVEL"
+          echo "Tags: $TAGS"
+        env:
+          LEVEL: ${{ inputs.logLevel }}
+          TAGS: ${{ inputs.tags }}
