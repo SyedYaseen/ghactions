@@ -22,7 +22,7 @@ jobs:
         run: echo "The value is ${{ inputs.isPass }}"
   
       - name: print env
-        run: echo "The value is $env.TEST_ENV"
+        run: echo "The value is ${{ env.TEST_ENV }}"
 
   no-job:
     if: inputs.isPass == 'no'
