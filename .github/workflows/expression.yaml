@@ -18,6 +18,9 @@ jobs:
     if: inputs.isPass == 'yes'
     runs-on: ubuntu-latest
     steps:
+      - name: run script
+        run: ./.github/workflows/run.sh
+    
       - name: print input when yes
         run: echo "The value is ${{ inputs.isPass }}"
         
