@@ -9,7 +9,7 @@ jobs:
   run-js:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v5 
+      - uses: actions/github-script@v6.3.3
         id: create-comment
         with:
           script: |
@@ -20,7 +20,7 @@ jobs:
               repo: context.repo.repo,
               title: "This is a comment"
               body: "I made this using gh actions"
-            )};
+            })
             
             return "Dummy return to check the output of this step"
             
