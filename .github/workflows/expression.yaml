@@ -24,6 +24,7 @@ jobs:
         
       - name: run script
         run: ./.github/scripts/run.sh
+        shell: bash
     
       - name: print input when yes
         run: echo "The value is ${{ inputs.isPass }}"
