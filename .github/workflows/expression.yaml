@@ -24,7 +24,6 @@ jobs:
         
       - name: run script
         run: |
-          git update-index --chmod=+x ./.github/scripts/run.sh
           ./.github/scripts/run.sh
         shell: bash
     
