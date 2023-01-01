@@ -46,5 +46,11 @@ jobs:
       - name: run when job fails
         if: failure()
         run: echo "The job has now failed"
-
+  
+  run-always:
+    runs-on: ubuntu-latest
+    if: always()
+    steps:
+      - name: runs always
+        run: echo "This job runs always, useful for cleanup functions etc."
     
