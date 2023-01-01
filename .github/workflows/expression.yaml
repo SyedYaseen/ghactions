@@ -20,6 +20,9 @@ jobs:
     steps:
       - name: print input when yes
         run: echo "The value is ${{ inputs.isPass }}"
+        
+      - name: printe nv from bash
+        run: echo "TEST ENV is $TEST_ENV"
   
       - name: print env
         run: echo "The value is ${{ env.TEST_ENV }}"
