@@ -27,6 +27,15 @@ jobs:
       - name: print env
         run: echo "The value is ${{ env.IS_PASS_ENV }}"
         
+
+
+  no-job:
+    if: inputs.isPass == 'no'
+    runs-on: ubuntu-latest
+    steps:
+      - name: print input when no
+        run: echo "The value is ${{ inputs.isPass }}" 
+        
       - name: fail job if no is the input 
         run: |
           echo "This fails the job. urrent input is ${{ inputs.isPass }}
@@ -34,13 +43,6 @@ jobs:
           then
             exit 1
           fi
-
-  no-job:
-    if: inputs.isPass == 'no'
-    runs-on: ubuntu-latest
-    steps:
-      - name: print input when no
-        run: echo "The value is ${{ inputs.isPass }}"
         
   not-run-if-fail:
     runs-on: ubuntu-latest
