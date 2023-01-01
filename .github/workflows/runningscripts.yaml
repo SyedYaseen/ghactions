@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/github-script@v5 
-        id: create comment
+        id: create-comment
         with:
           script: |
             console.log("This working?")
