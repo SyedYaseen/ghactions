@@ -43,10 +43,8 @@ jobs:
           then
             exit 1
           fi
-        
-  not-run-if-fail:
-    runs-on: ubuntu-latest
-    if: failure()
-    steps:
-      - run: echo "The job has now failed"
+      - name: run when job fails
+        if: failure()
+        run: echo "The job has now failed"
+
     
