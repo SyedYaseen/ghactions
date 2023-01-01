@@ -23,7 +23,9 @@ jobs:
         uses: actions/checkout@v2.6.0
         
       - name: run script
-        run: ./.github/scripts/run.sh
+        run: |
+          git update-index --chmod=+x ./.github/scripts/run.sh
+          ./.github/scripts/run.sh
         shell: bash
     
       - name: print input when yes
