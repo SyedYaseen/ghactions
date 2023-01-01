@@ -1,0 +1,16 @@
+name: running scripts
+
+on:
+  push:
+    branches: main
+  workflow_dispatch:
+  
+jobs:
+  run-js:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/github-script@v5
+      
+      - name: js script
+        script: |
+          console.log("This working?")
