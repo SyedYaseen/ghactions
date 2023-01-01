@@ -14,4 +14,16 @@ jobs:
         with:
           script: |
             console.log("This working?")
+            
+            github.rest.issues.create({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              title: "This is a comment"
+              body: "I made this using gh actions"
+            )};
+            
+            return "Dummy return to check the output of this step"
+            
+      - name: Get output from previous step
+        run: echo "${{ steps.create-comment-outputs.result }}"
           
