@@ -17,7 +17,11 @@ jobs:
   yes-job:
     if: inputs.isPass == 'yes'
     runs-on: ubuntu-latest
+    
     steps:
+      - name: checkout code
+        uses: actions/checkout@v2.6.0
+        
       - name: run script
         run: ./.github/scripts/run.sh
     
@@ -29,12 +33,11 @@ jobs:
   
       - name: print env
         run: echo "The value is ${{ env.IS_PASS_ENV }}"
-        
-
 
   no-job:
     if: inputs.isPass == 'no'
     runs-on: ubuntu-latest
+    
     steps:
       - name: print input when no
         run: echo "The value is ${{ inputs.isPass }}" 
