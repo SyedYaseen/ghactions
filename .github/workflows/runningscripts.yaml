@@ -9,8 +9,9 @@ jobs:
   run-js:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v5
-      
-      - name: js script
-        script: |
-          console.log("This working?")
+      - uses: actions/github-script@v5 
+        id: create comment
+        with:
+          script: |
+            console.log("This working?")
+          
